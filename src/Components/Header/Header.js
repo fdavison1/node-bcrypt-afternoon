@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Header.css';
+import axios from 'axios';
 
 export default class Header extends Component {
   constructor() {
@@ -31,8 +32,19 @@ export default class Header extends Component {
     // axios POST to /auth/login here
   }
 
-  register() {
+  async register() {
     // axios POST to /auth/register here
+    const {username, password, isAdmin} = this.state
+    let res = await axios.post('/auth/register', {
+      username: username,
+      password: password,
+      isAdmin: isAdmin
+    })
+    this.setState({
+      username: '',
+      password: ''
+    })
+    this.props.updateUser(res.data)
   }
 
   logout() {
