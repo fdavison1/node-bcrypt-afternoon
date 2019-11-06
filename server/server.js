@@ -17,6 +17,7 @@ app.use(session({
 
 //endpoints
 app.post('/auth/register', authCTRL.register)
+app.post('/auth/login', authCTRL.login)
 
 
 //massive
