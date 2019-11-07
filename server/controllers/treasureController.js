@@ -9,5 +9,12 @@ module.exports = {
         const db = req.app.get('db')
         const result = await db.get_user_treasure(id)
         res.status(200).send(result)
+    }, 
+    addUserTreasure: async (req, res)=> {
+        const {treasureURL} = req.body
+        const {id} = req.session.user
+        const db = req.app.get('db')
+        const result = await db.add_user_treasure(treasureURL, id)
+        res.status(200).send(result)
     }
 }

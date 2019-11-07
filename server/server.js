@@ -24,6 +24,7 @@ app.get('/auth/logout', authCTRL.logout)
 
 app.get('/api/treasure/dragon', treasureCTRL.dragonTreasure)
 app.get('/api/treasure/user', auth.usersOnly, treasureCTRL.getUserTreasure)
+app.post('/api/treasure/user', auth.usersOnly, treasureCTRL.addUserTreasure)
 
 
 //massive
